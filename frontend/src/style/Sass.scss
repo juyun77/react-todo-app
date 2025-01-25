@@ -1,0 +1,192 @@
+$primary-color: #000000;
+$secondary-color: #f7fafc;
+$text-color: #2d3748;
+$border-color: #e2e8f0;
+$button-hover-color: darken($primary-color, 10%);
+$box-shadow-color: rgba(0, 0, 0, 0.1);
+
+h1 {
+  text-align: center;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: $secondary-color;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px $box-shadow-color;
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  .div1 {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    input {
+      flex: 1;
+      padding: 12px 15px;
+      font-size: 1rem;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      background-color: $secondary-color;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: lighten($secondary-color, 5%);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 6px rgba(90, 103, 216, 0.4);
+        background-color: white;
+      }
+
+      &::placeholder {
+        color: darken($secondary-color, 20%);
+        font-style: italic;
+      }
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: $primary-color;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $button-hover-color;
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0 2px 5px $box-shadow-color;
+      transition: all 0.2s ease;
+
+      &:hover {
+        box-shadow: 0 4px 8px $box-shadow-color;
+      }
+
+      button {
+        background-color: white;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+        padding: 8px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $button-hover-color;
+          color: white;
+        }
+
+        svg {
+          font-size: 1rem;
+        }
+      }
+
+      span {
+        flex: 1;
+        margin-left: 10px;
+        font-size: 1rem;
+        color: $text-color;
+      }
+    }
+  }
+}
+
+/////반응형
+@media (max-width: 768px) {
+  section {
+    padding: 15px;
+    max-width: 90%; // 화면 너비의 90%를 사용
+  }
+
+  .div1 {
+    flex-direction: column; // 텍스트박스와 버튼을 세로로 배치
+    gap: 10px;
+
+    input {
+      width: 100%; // 입력 필드가 화면 너비에 맞게 늘어남
+    }
+
+    button {
+      width: 100%; // 버튼도 화면 너비에 맞게 늘어남
+    }
+  }
+
+  ul {
+    li {
+      flex-direction: column; // 리스트 아이템 내부를 세로로 배치
+      align-items: flex-start;
+
+      button {
+        margin-bottom: 10px; // 버튼과 텍스트 간 여백 추가
+      }
+
+      span {
+        margin-left: 0; // 리스트 텍스트의 좌측 여백 제거
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  h3 {
+    font-size: 1.2rem; // 작은 화면에서는 제목 크기 축소
+  }
+
+  .div1 input {
+    font-size: 0.9rem; // 작은 화면에서 입력 필드 폰트 크기 축소
+  }
+
+  ul li {
+    padding: 10px; // 리스트 아이템의 여백 축소
+  }
+}
